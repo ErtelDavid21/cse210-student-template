@@ -2,6 +2,8 @@ using System;
 
 class Entry
 {
+    Journal addTo = new Journal();
+
     public static void entrySave(object obj, string fileName)
     {
         var options = new JsonSerializerOptions(_options) 
@@ -16,9 +18,10 @@ class Entry
 
     public static void journalEntry()
     {
-        Console.WriteLine("Would you like a random prompt? ")
-        var answer = Console.ReadLine();
         
+        Console.WriteLine("")
+        string entry = Console.ReadLine();
 
+        addTo.journalEntry.JournalEntries.Add(entry);
     }
 }
