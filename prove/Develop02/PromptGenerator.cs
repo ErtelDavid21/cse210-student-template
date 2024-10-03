@@ -30,7 +30,7 @@ class PromptGenerator
             case 8:
                 Console.WriteLine("Have you felt the spirit today? ");
             case 9:
-                Console.WriteLine("Have you felt a desire to change today? ")
+                Console.WriteLine("Have you felt a desire to change today? ");
             
         }
 

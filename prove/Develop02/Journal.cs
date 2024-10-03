@@ -15,7 +15,7 @@ using System;
 
 class Journal
 {
-    public journalLoad(Boolean journalTask)
+    public string journalLoad(Boolean journalTask)
     {
         // Initializes the variables to run the journal
         Entry e = new Entry();
@@ -46,7 +46,7 @@ class Journal
         // Write a new entry
         else if (userRequest.ToLower() == "write")
         {
-            Console.WriteLine("Want a random prompt? (y/n)")
+            Console.WriteLine("Want a random prompt? (y/n)");
             string prompting = Console.ReadLine();
             Entry e = new Entry();
             PromptGenerator p = new PromptGenerator();
@@ -56,7 +56,7 @@ class Journal
             }
             else
             {
-                Console.WriteLine("No Prompt was generated.")
+                Console.WriteLine("No Prompt was generated.");
             }
             e.journalEntry();
 
@@ -70,7 +70,7 @@ class Journal
             Console.WriteLine("What would you like to name the Journal Entries file? ");
             string title = Console.ReadLine();
 
-            File.WriteAllLines()
+            File.WriteAllLines();
 
         }
 
@@ -93,6 +93,8 @@ class Journal
             Console.WriteLine("Input invalid, try again");
 
         }
+
+        return "";
     }
 
 

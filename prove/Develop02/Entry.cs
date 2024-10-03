@@ -18,8 +18,8 @@ class Entry
 
     public static void journalEntry()
     {
-        
-        Console.WriteLine("")
+
+        Console.WriteLine("");
         string entry = Console.ReadLine();
 
         addTo.journalEntry.JournalEntries.Add(entry);

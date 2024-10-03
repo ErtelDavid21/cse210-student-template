@@ -1,7 +1,7 @@
 using System;
 
 
-class Extended
+class Extended: Goal
 {
     public string[] ExtendedGoals(string[] deextendedGoals)
     {
@@ -20,7 +20,7 @@ class Extended
         string[] degoalList = deextendedGoals.Concat(degoal).ToArray();
         degoalList = deextendedGoals.Concat(derepeat).ToArray();
 
-// needs to change return type or delete this statement
+        // needs to change return type or delete this statement
         return degoalList;
 
     }

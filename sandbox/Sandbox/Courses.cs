@@ -15,6 +15,6 @@ class Course
     // methods
     public void Display()
     {
-        Console.WriteLine($"{_classCode} {_className} {_credits} {_colour}")
+        Console.WriteLine($"{_classCode} {_className} {_credits} {_colour}");
     }
 }

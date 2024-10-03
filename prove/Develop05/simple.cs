@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-public class Simple
+public class Simple: Goal
 {
     private List<Goal> goals;
 
