@@ -3,6 +3,12 @@ using System;
 class Reference
 {
     public string DEinfo;
+
+    public refer()
+    {
+        Console.WriteLine("Where do you want to obtain your reference from? 1: Manual, 2: From File, or 3: From Random List. ");
+        userRefer = Console.ReadLine();
+    }
     public void referToUser()
     {
         // Asks the user to enter in the reference for what they are studying
@@ -51,5 +57,6 @@ class Reference
                 Console.WriteLine("Have you felt the spirit today? ");
             case 9:
                 Console.WriteLine("Have you felt a desire to change today? ")
+        }
     }
 }
