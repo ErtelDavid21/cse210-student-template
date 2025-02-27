@@ -1,6 +1,10 @@
 using System;
 using System.Collections.Generic;
 
+
+
+
+
 public class Scripture
 {
     public List<Scripture> _scripture = new List<Scripture>();

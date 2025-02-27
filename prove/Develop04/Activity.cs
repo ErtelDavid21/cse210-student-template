@@ -88,9 +88,21 @@ private class Activity
     }
 
 
-   public static void SpinnerLoad()
+   public static void SpinnerLoad(int time)
    {
+        list<str> spinner = [" - "," \ "," | "," / "]
+        DateTime() startTime = DateTime().Now
+
+
+
+
         //Displays a loading indicator
+        while((DateTime().Now-startTime) < time){
+            foreach (int item in spinner)
+            {
+                print(list[item])
+            }
+        }
         string loading = ("Timer paused....Loading..");
    }
 
