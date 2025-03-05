@@ -15,7 +15,7 @@ using System;
 
 class Journal
 {
-    public string journalLoad(Boolean journalTask)
+    public Boolean journalLoad(Boolean journalTask)
     {
         // Initializes the variables to run the journal
         Entry e = new Entry();
@@ -48,11 +48,12 @@ class Journal
         {
             Console.WriteLine("Want a random prompt? (y/n)");
             string prompting = Console.ReadLine();
-            Entry e = new Entry();
-            PromptGenerator p = new PromptGenerator();
-            if (prompting.ToLower == "y")
+            Entry user = new Entry();
+            PromptGenerator prompter = new PromptGenerator();
+            
+            if (prompting.ToLower() == "y")
             {
-                p.Prompt();
+                prompter.Prompt();
             }
             else
             {

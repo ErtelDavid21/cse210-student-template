@@ -10,7 +10,7 @@ using Microsoft.VisualBasic;
 using System.Reflection.Metadata;
 
 
-private class Activity
+class Activity
 {
 
 
@@ -90,17 +90,18 @@ private class Activity
 
    public static void SpinnerLoad(int time)
    {
-        list<str> spinner = [" - "," \ "," | "," / "]
-        DateTime() startTime = DateTime().Now
-
+        List<string> spinner = [" - "," \ "," | "," / "];
+        
+        DateTime startTime = DateTime.Now;
+        TimeSpan duration = TimeSpan.FromSeconds(time);
 
 
 
         //Displays a loading indicator
-        while((DateTime().Now-startTime) < time){
-            foreach (int item in spinner)
+        while((DateTime.Now - startTime) < duration){
+            foreach(string item in spinner)
             {
-                print(list[item])
+                Console.WriteLine(item);
             }
         }
         string loading = ("Timer paused....Loading..");
