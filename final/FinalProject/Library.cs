@@ -4,6 +4,7 @@ using Microsoft.VisualBasic;
 using System.Collections.Generic;
 using System.Text.Json;
 using System.IO;
+using System.ComponentModel;
 
 class Library
 {
@@ -21,6 +22,7 @@ class Library
     protected List<(string, string, string)> physcialBook = new List<(string, string, string)>();
     protected List<(string, string, string)> eBook = new List<(string, string, string)>();
     protected List<(string, string, string)> music = new List<(string, string, string)>();
+
 
     protected List<(string, string, string)> mediaList = new List<(string, string, string)>();
 
@@ -161,9 +163,198 @@ class Library
         } 
     }
 
+    public void saveLibrary()
+    {
+        Console.WriteLine("What do you want to save the library as? ");
+        string libraryName = Console.ReadLine();
+        using (var writer = new StreamWriter(libraryName))
+        {
+            writer.WriteLine("dvds: ");
+            foreach (var item in dvds)
+            {
+                    writer.WriteLine($"{item.Item1}, {item.Item2}, {item.Item3}");
+            }
+            writer.WriteLine("vhs: ");
+            foreach (var item in dvds)
+            {
+                    writer.WriteLine($"{item.Item1}, {item.Item2}, {item.Item3}");
+            }
+            writer.WriteLine("ebooks: ");
+            foreach (var item in dvds)
+            {
+                    writer.WriteLine($"{item.Item1}, {item.Item2}, {item.Item3}");
+            }
+            writer.WriteLine("physical books: ");
+            foreach (var item in dvds)
+            {
+                    writer.WriteLine($"{item.Item1}, {item.Item2}, {item.Item3}");
+            }
+            writer.WriteLine("video games: ");
+            foreach (var item in dvds)
+            {
+                    writer.WriteLine($"{item.Item1}, {item.Item2}, {item.Item3}");
+            }
+            writer.WriteLine("card games: ");
+            foreach (var item in dvds)
+            {
+                    writer.WriteLine($"{item.Item1}, {item.Item2}, {item.Item3}");
+            }
+            writer.WriteLine("board games: ");
+            foreach (var item in dvds)
+            {
+                    writer.WriteLine($"{item.Item1}, {item.Item2}, {item.Item3}");
+            }
+            writer.WriteLine("music: ");
+            foreach (var item in dvds)
+            {
+                    writer.WriteLine($"{item.Item1}, {item.Item2}, {item.Item3}");
+            }
+            
+       }
+
+    }
+
+
+    public void loadLibrary(string filesave)
+    {
+        Console.WriteLine("What file would you like to load into the library? (ex. library1.txt)");
+        string libraryFile = Console.ReadLine();
+
+        var lists = new Dictionary<string, List<(string, string, string)>>();
+        var currentListName = "";
+        var currentList = new List<(string, string, string)>();
+        foreach (var line in File.ReadLines(libraryFile))
+        {
+            if (line.StartsWith("dvds: "))
+            {
+                if (currentListName != "")
+                {
+                    lists[currentListName] = currentList;
+
+                    currentList = new List<(string, string, string)>();
+                }
+                currentListName = line.Substring(5); //Remove "dvds: "
+
+            }
+            else if (line.StartsWith("vhs: "))
+            {
+                if (currentListName != "")
+                {
+                    lists[currentListName] = currentList;
+
+                    currentList = new List<(string, string, string)>();
+                }
+                currentListName = line.Substring(5); //Remove "vhs: "
+                
+            }
+            else if (line.StartsWith("ebooks: "))
+            {
+                if (currentListName != "")
+                {
+                    lists[currentListName] = currentList;
+
+                    currentList = new List<(string, string, string)>();
+                }
+                currentListName = line.Substring(5); //Remove "ebooks: "
+                
+            }
+            else if (line.StartsWith("physical books: "))
+            {
+                if (currentListName != "")
+                {
+                    lists[currentListName] = currentList;
+
+                    currentList = new List<(string, string, string)>();
+                }
+                currentListName = line.Substring(5); //Remove "physical books: "
+                
+            }
+            else if (line.StartsWith("video games: "))
+            {
+                if (currentListName != "")
+                {
+                    lists[currentListName] = currentList;
+
+                    currentList = new List<(string, string, string)>();
+                }
+                currentListName = line.Substring(5); //Remove "video games: "
+                
+            }
+            else if (line.StartsWith("card games: "))
+            {
+                if (currentListName != "")
+                {
+                    lists[currentListName] = currentList;
+
+                    currentList = new List<(string, string, string)>();
+                }
+                currentListName = line.Substring(5); //Remove "card games: "
+                
+            }
+            else if (line.StartsWith("board games: "))
+            {
+                if (currentListName != "")
+                {
+                    lists[currentListName] = currentList;
+
+                    currentList = new List<(string, string, string)>();
+                }
+                currentListName = line.Substring(5); //Remove "board games: "
+                
+            }
+            else if (line.StartsWith("music: "))
+            {
+                if (currentListName != "")
+                {
+                    lists[currentListName] = currentList;
+
+                    currentList = new List<(string, string, string)>();
+                }
+                currentListName = line.Substring(5); //Remove "music: "
+                
+            }
+            else
+            {
+                var parts = line.Split(',');
+
+                currentList.Add((parts[0], parts[1], parts[2]));
+            }
+
+            if (filesave.ToLower() == "dvd"){
+                dvds.AddRange(lists["dvds: "]);
+            }
+            else if (filesave.ToLower() == "vhs"){
+                vhs.AddRange(lists["vhs: "]);
+            }
+            else if (filesave.ToLower() == "ebook"){
+                eBook.AddRange(lists["ebooks: "]);
+            }
+            else if (filesave.ToLower() == "pbook"){
+                physcialBook.AddRange(lists["physical books: "]);
+            }
+            else if (filesave.ToLower() == "vgame"){
+                videoGame.AddRange(lists["video games: "]);
+            }
+            else if (filesave.ToLower() == "cgame"){
+                cardGame.AddRange(lists["card games: "]);
+            }
+            else if (filesave.ToLower() == "bgame"){
+                boardGame.AddRange(lists["board games: "]);
+            }
+            else if (filesave.ToLower() == "music"){
+                music.AddRange(lists["music: "]);
+            }
+            else
+            {
+                Console.WriteLine("Invalid Entry. Try again.");
+            }
+            
+        }
+        
+            
+
+    }
+
+
 }
 
-
-    
-
-    

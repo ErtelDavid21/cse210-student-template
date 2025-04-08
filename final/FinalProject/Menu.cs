@@ -1,4 +1,5 @@
 using System;
+using System.Formats.Asn1;
 using System.Reflection;
 using Microsoft.VisualBasic;
 
@@ -134,12 +135,75 @@ class Menu
         if (task == 4)
         {
             // Run Save Info
+            Dvd.saveLibrary();
         }
         if (task == 5)
         {
             // Run Load Info
+            Console.WriteLine("Do you want to load all info into current lirary? yes or no");
+            string answer = Console.ReadLine();
+            if (answer.ToLower() == "yes")
+            {
+                Dvd.loadLibrary("dvd");
+                Vhs.loadLibrary("vhs");
+                Digital.loadLibrary("ebook");
+                Physical.loadLibrary("pbook");
+                Vgame.loadLibrary("vgame");
+                Cgame.loadLibrary("cgame");
+                Bgame.loadLibrary("bgame");
+                Sounds.loadLibrary("music");
+
+            }
+            if (answer.ToLower() == "no")
+            {
+                Boolean valid = false;
+                while (valid != true)
+                {
+                    Console.WriteLine("What list would you like to load? ");
+                    Console.WriteLine("(1. dvd, 2. vhs, 3. ebook, 4. pbook, 5. vgame, 6. cgame, 7. bgame, 8. music)");
+                    answer = Console.ReadLine();
+                    switch (answer)
+                    {
+                        case "1":
+                            Dvd.loadLibrary("dvd");
+                            valid = true;
+                            break;
+                        case "2":
+                            Vhs.loadLibrary("vhs");
+                            valid = true;
+                            break;
+                        case "3":
+                            Digital.loadLibrary("ebook");
+                            valid = true;
+                            break;
+                        case "4":
+                            Physical.loadLibrary("pbook");
+                            valid = true;
+                            break;
+                        case "5":
+                            Vgame.loadLibrary("vgame");
+                            valid = true;
+                            break;
+                        case "6":
+                            Cgame.loadLibrary("cgame");
+                            valid = true;
+                            break;
+                        case "7":
+                            Bgame.loadLibrary("bgame");
+                            valid = true;
+                            break;
+                        case "8":
+                            Sounds.loadLibrary("music");
+                            valid = true;
+                            break;
+                        default:
+                            Console.WriteLine("Invalid Entry");
+                            break;
+                    
+                    }
+                }
+            }    
         }
-        else
         {
             Console.WriteLine("That task is not possible");
         }
@@ -200,7 +264,7 @@ class Menu
     }
     
     
-
+    
 
     
 }
