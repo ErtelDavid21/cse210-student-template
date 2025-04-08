@@ -120,7 +120,7 @@ class Library
 
     }
 
-    public void alterList()
+    public void alterList(string mediaChange)
     {
         Console.WriteLine("What do you want to alter? (Enter 1: Title, 2: Source, 3: Location)");
         string alter = Console.ReadLine();
@@ -146,7 +146,38 @@ class Library
             newLocation = Console.ReadLine();
         }
 
-        mediaList = dvds;
+        switch (mediaChange)
+        {
+            case "1":
+                mediaList = dvds;
+                break;
+            case "2":
+                mediaList = vhs;
+                break;
+            case "3":
+                mediaList = eBook;
+                break;
+            case "4":
+                mediaList = physcialBook;
+                break;
+            case "5":
+                mediaList = videoGame;
+                break;
+            case "6":
+                mediaList = cardGame;
+                break;
+            case "7":
+                 mediaList = boardGame;
+                break;
+            case "8":
+                mediaList = music;
+                break;
+            default:
+                Console.WriteLine("Invalid Entry");
+                break;
+                    
+                
+        }
 
         for (int i = 0; i < mediaList.Count; i++)
         {

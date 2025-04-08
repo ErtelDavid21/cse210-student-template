@@ -131,6 +131,53 @@ class Menu
         if (task == 3)
         {
             // Run Alter Info
+            Boolean validAlter = false;
+            while (validAlter != true)
+            {
+                Console.WriteLine("What media is the info you want to alter?");
+                Console.WriteLine("(1. dvd, 2. vhs, 3. ebook, 4. pbook, 5. vgame, 6. cgame, 7. bgame, 8. music)");
+                string mediaEdit = Console.ReadLine();
+                switch (mediaEdit)
+                {
+                    case "1":
+                        Dvd.loadLibrary("dvd");
+                        validAlter = true;
+                        break;
+                    case "2":
+                        Vhs.loadLibrary("vhs");
+                        validAlter = true;
+                        break;
+                    case "3":
+                        Digital.loadLibrary("ebook");
+                        validAlter = true;
+                        break;
+                    case "4":
+                        Physical.loadLibrary("pbook");
+                        validAlter = true;
+                        break;
+                    case "5":
+                        Vgame.loadLibrary("vgame");
+                        validAlter = true;
+                        break;
+                    case "6":
+                        Cgame.loadLibrary("cgame");
+                        validAlter = true;
+                        break;
+                    case "7":
+                        Bgame.loadLibrary("bgame");
+                        validAlter = true;
+                        break;
+                    case "8":
+                        Sounds.alterList("music");
+                        validAlter = true;
+                        break;
+                    default:
+                        Console.WriteLine("Invalid Entry");
+                        break;
+                    
+                }
+            
+            }
         }
         if (task == 4)
         {
@@ -156,8 +203,8 @@ class Menu
             }
             if (answer.ToLower() == "no")
             {
-                Boolean valid = false;
-                while (valid != true)
+                Boolean validLoad = false;
+                while (validLoad != true)
                 {
                     Console.WriteLine("What list would you like to load? ");
                     Console.WriteLine("(1. dvd, 2. vhs, 3. ebook, 4. pbook, 5. vgame, 6. cgame, 7. bgame, 8. music)");
@@ -166,35 +213,35 @@ class Menu
                     {
                         case "1":
                             Dvd.loadLibrary("dvd");
-                            valid = true;
+                            validLoad = true;
                             break;
                         case "2":
                             Vhs.loadLibrary("vhs");
-                            valid = true;
+                            validLoad = true;
                             break;
                         case "3":
                             Digital.loadLibrary("ebook");
-                            valid = true;
+                            validLoad = true;
                             break;
                         case "4":
                             Physical.loadLibrary("pbook");
-                            valid = true;
+                            validLoad = true;
                             break;
                         case "5":
                             Vgame.loadLibrary("vgame");
-                            valid = true;
+                            validLoad = true;
                             break;
                         case "6":
                             Cgame.loadLibrary("cgame");
-                            valid = true;
+                            validLoad = true;
                             break;
                         case "7":
                             Bgame.loadLibrary("bgame");
-                            valid = true;
+                            validLoad = true;
                             break;
                         case "8":
                             Sounds.loadLibrary("music");
-                            valid = true;
+                            validLoad = true;
                             break;
                         default:
                             Console.WriteLine("Invalid Entry");
@@ -203,11 +250,13 @@ class Menu
                     }
                 }
             }    
-        }
-        {
+        
+        
             Console.WriteLine("That task is not possible");
         }
+        
     }
+        
     
 
 
