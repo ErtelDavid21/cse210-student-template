@@ -37,6 +37,50 @@ class Library
     protected string deComposer;
     protected string deGaming;
 
+    public void Display_Info(string information)
+    {   
+        List<(string, string, string)> mediaIdentify = new List<(string, string, string)>();
+        switch (information)
+        {
+            case "1":
+                mediaIdentify = dvds;
+                break;
+            case "2":
+                mediaIdentify = vhs;
+                break;
+            case "3":
+                mediaIdentify = eBook;
+                break;
+            case "4":
+                mediaIdentify = physcialBook;
+                break;
+            case "5":
+                mediaIdentify = videoGame;
+                break;
+            case "6":
+                mediaIdentify = cardGame;
+                break;
+            case "7":
+                mediaIdentify = boardGame;
+                break;
+            case "8":
+                mediaIdentify = music;
+                break;
+            default:
+                break;
+
+        }
+
+
+        foreach (var details in mediaIdentify)
+        {
+            Console.WriteLine(details);
+        }
+        
+    }
+
+    
+    
 
     public string addMedia(string mediaType)
     {
@@ -87,16 +131,16 @@ class Library
         }
         if (alter == "2")
         {
-            Console.WriteLine("What title do you want to change? ");
+            Console.WriteLine("What Source do you want to change? ");
             oldCreator = Console.ReadLine();
-            Console.WriteLine("What is the new title? ");
+            Console.WriteLine("What is the new Source? ");
             newCreator = Console.ReadLine();
         }
         if (alter == "3")
         {
-            Console.WriteLine("What title do you want to change? ");
+            Console.WriteLine("What Location do you want to change? ");
             oldLocation = Console.ReadLine();
-            Console.WriteLine("What is the new title? ");
+            Console.WriteLine("What is the new Location? ");
             newLocation = Console.ReadLine();
         }
 
