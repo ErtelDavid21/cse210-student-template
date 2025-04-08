@@ -24,6 +24,8 @@ class Menu
 
 
             }
+
+            // Adds a goal to the list of goals
             else if (deactivity == "1")
             {
                 Console.WriteLine("What kind of goal would you like to add? ");
@@ -34,10 +36,20 @@ class Menu
                     single.AddGoals("simple");
                 }
             }
+
+            // Marks a goal as completed once
             else if (deactivity == "2")
             {
-                
+                Console.WriteLine("What kind of goal would you like to add? ");
+                Console.WriteLine("(1: Simple Goal, 2: Checklist Goal, 3: Eternal Goal)");
+                string goalType = Console.ReadLine();
+                if (goalType == "1")
+                {
+                    single.AddGoals("simple");
+                }
             }
+
+            // Displays all the goals currently on the list of goals
             else if (deactivity == "3")
             {
                 

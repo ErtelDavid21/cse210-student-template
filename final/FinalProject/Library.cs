@@ -27,6 +27,7 @@ class Library
 
 
     protected string title, author, company, creator, newTitle, oldTitle;
+    protected string oldCreator, newCreator, oldLocation, newLocation;
     //Load info
     protected string deEbook;
     protected string dePbook;
@@ -55,27 +56,28 @@ class Library
 
     }
 
-    public void addCompany(string mediaType)
+    public string addCompany(string mediaType)
     {
         Console.WriteLine("Enter the title of the "+mediaType);
-        title = Console.ReadLine();
+        company = Console.ReadLine();
         
+        return company;
 
     }
 
-    public void addCreator(string mediaType)
+    public string addCreator(string mediaType)
     {
         Console.WriteLine("Enter the title of the "+mediaType);
-        title = Console.ReadLine();
+        creator = Console.ReadLine();
         
+        return creator;
 
     }
 
-    public void alterTitle()
+    public void alterList()
     {
         Console.WriteLine("What do you want to alter? (Enter 1: Title, 2: Source, 3: Location)");
         string alter = Console.ReadLine();
-        string placement = alter;
         if (alter == "1")
         {
             Console.WriteLine("What title do you want to change? ");
@@ -83,19 +85,34 @@ class Library
             Console.WriteLine("What is the new title? ");
             newTitle = Console.ReadLine();
         }
+        if (alter == "2")
+        {
+            Console.WriteLine("What title do you want to change? ");
+            oldCreator = Console.ReadLine();
+            Console.WriteLine("What is the new title? ");
+            newCreator = Console.ReadLine();
+        }
+        if (alter == "3")
+        {
+            Console.WriteLine("What title do you want to change? ");
+            oldLocation = Console.ReadLine();
+            Console.WriteLine("What is the new title? ");
+            newLocation = Console.ReadLine();
+        }
+
         mediaList = dvds;
 
         for (int i = 0; i < mediaList.Count; i++)
         {
             var item = mediaList[i];
-            if (placement == "1"){
-                mediaList[i] = (i == 0 ? oldTitle : newTitle, item.Item2, item.Item3);
+            if (item.Item1 == oldTitle){
+                mediaList[i] = (newTitle, item.Item2, item.Item3);
             }
-            else if (placement == "2"){
-                mediaList[i] = (item.Item1, i == 0 ? oldCreator : newCreator, item.Item3);
+            else if (item.Item2 == oldCreator){
+                mediaList[i] = (item.Item1, newCreator, item.Item3);
             }
-            else if (placement == "3"){
-                mediaList[i] = (item.Item2, item.Item3, i == 0 ? oldLocation : newLocation);
+            else if (item.Item3 == oldLocation){
+                mediaList[i] = (item.Item1, item.Item2, newLocation);
             } 
         } 
     }

@@ -31,11 +31,5 @@ public class Simple: Goal
         Console.WriteLine("Goal not found.");
     }
 
-    public void DisplayGoals()
-    {
-        foreach (var goal in goals)
-        {
-            Console.WriteLine($"Goal: {goal.Name}, Points: {goal.Points}, IsComplete: {goal.IsComplete}");
-        }
-    }
+
 }

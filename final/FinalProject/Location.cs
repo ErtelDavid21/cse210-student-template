@@ -6,6 +6,15 @@ class Location:Library
     public List<string> deLocal = new List<string>();
     public List<string> deArea = new List<string>();
 
+    public string addLocation(string media)
+    {
+        Console.WriteLine("Where are you storing the "+media);
+        string locale = Console.ReadLine();
+
+        return locale;
+
+    }
+
     //Method to get list of locations
     public List<string> deGetLocation(string deInfo)
     {
